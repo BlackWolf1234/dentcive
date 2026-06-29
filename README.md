@@ -85,7 +85,7 @@ cd public && python -m http.server 8088
 ## Publicar en producción (GitHub Pages)
 
 Este repositorio ya incluye el workflow
-`/home/runner/work/dentcive/dentcive/.github/workflows/deploy-pages.yml`
+`.github/workflows/deploy-pages.yml`
 para publicar la web automáticamente en GitHub Pages.
 
 ### 1) Activar Pages en GitHub
