@@ -82,6 +82,39 @@ cd public && python -m http.server 8088
 # Abre http://localhost:8088
 ```
 
+## Publicar en producción (GitHub Pages)
+
+Este repositorio ya incluye el workflow
+`.github/workflows/deploy-pages.yml`
+para publicar la web automáticamente en GitHub Pages.
+
+### 1) Activar Pages en GitHub
+
+1. Ve a **Settings → Pages** del repositorio
+2. En **Build and deployment**, selecciona **GitHub Actions**
+
+### 2) Publicación automática
+
+- Cada push a `main` ejecuta el workflow
+- El workflow genera el build estático con `reflex export`
+- Publica el contenido de `public/` en GitHub Pages
+
+### 3) Dominio personalizado (opcional)
+
+1. En **Settings → Pages**, agrega tu dominio en **Custom domain**
+2. Crea el registro DNS correspondiente:
+   - `CNAME` (subdominio) o
+   - `A/AAAA` (dominio raíz, según tu proveedor)
+3. Activa **Enforce HTTPS** cuando aparezca disponible
+
+### 4) Flujo para actualizar la web
+
+Cada vez que cambies productos o contenido:
+
+1. Haz commit de tus cambios
+2. Haz push a `main`
+3. Espera a que termine el workflow de Pages
+
 ## Añadir productos
 
 ### Opción A: desde el panel web (recomendado)
