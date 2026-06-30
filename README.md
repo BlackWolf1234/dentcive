@@ -40,7 +40,7 @@ dentcive/
 │   └── views/
 │       ├── header/header.py    # Hero + 4 service tiles
 │       └── links/links.py      # Catálogo + categorías + contacto
-├── public/                     # Build estática generada por reflex export
+├── public/                     # Build estática (incluye .nojekyll y /dentcive/)
 └── uploaded_files/             # Directorio temporal para uploads (no commitear)
 ```
 
@@ -75,6 +75,8 @@ reflex run
 # Build de producción
 reflex export --frontend-only
 unzip -o frontend.zip -d public
+touch public/.nojekyll
+# El sitio queda en public/dentcive/
 rm frontend.zip
 
 # Servir build estática local
@@ -88,6 +90,9 @@ Este repositorio ya incluye el workflow
 `.github/workflows/deploy-pages.yml`
 para publicar la web automáticamente en GitHub Pages.
 
+La app está configurada para publicarse en el subpath `/<repo-name>/`
+(`https://<username>.github.io/<repo-name>/` o dominio personalizado).
+
 ### 1) Activar Pages en GitHub
 
 1. Ve a **Settings → Pages** del repositorio
@@ -97,7 +102,7 @@ para publicar la web automáticamente en GitHub Pages.
 
 - Cada push a `main` ejecuta el workflow
 - El workflow genera el build estático con `reflex export`
-- Publica el contenido de `public/` en GitHub Pages
+- Publica el contenido de `public/` en GitHub Pages (la app queda en `public/dentcive/`)
 
 ### 3) Dominio personalizado (opcional)
 

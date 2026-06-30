@@ -19,6 +19,9 @@ plugins = [
 
 config = rx.Config(
     app_name="dentcive",
+    # Reflex uses frontend_path to prefix generated asset and route URLs.
+    frontend_path="/dentcive",
+    deploy_url="https://blackwolf1234.github.io/dentcive",
     plugins=plugins,
     upload_dir="uploaded_files",
 )

@@ -41,6 +41,7 @@ jobs:
           reflex export --frontend-only
           rm -rf public
           unzip -o frontend.zip -d public
+          touch public/.nojekyll
           rm -f frontend.zip
 
       - name: Upload artifact
